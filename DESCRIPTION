@@ -1,0 +1,14 @@
+Package: mojpakiet
+Version: 0.1
+Date: 2026-04-09
+Title: Moj Pierwszy Pakiet
+Description: Opis.
+Authors@R: c(person("Roman", "Tyk", role = c("aut", "cre"),
+                     email = "Roman.Tyk@pw.edu.pl"))
+Author: Roman Tyk [aut, cre]
+Maintainer: Roman Tyk <Roman.Tyk@pw.edu.pl>
+Depends: stats
+Suggests: tinytest
+License: AGPL (>= 3)
+RoxygenNote: 7.3.3
+Encoding: UTF-8
