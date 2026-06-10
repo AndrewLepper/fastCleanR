@@ -22,3 +22,10 @@ in the dataset, using parallel C++ processing and a KD-Tree.
 Values close to 1 indicate "normal" observations. Values significantly greater than 1 
 (e.g., > 1.5 or > 2.0) suggest distinct density-based anomalies.
 }
+\examples{
+cluster <- data.frame(X = rnorm(100, 0, 0.5), Y = rnorm(100, 0, 0.5))
+anomaly <- data.frame(X = 10, Y = 10)
+dataset <- rbind(cluster, anomaly)
+lof_scores <- detect_lof(dataset, k = 10, n_threads = 2)
+print(lof_scores[101])
+}

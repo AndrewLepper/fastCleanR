@@ -11,6 +11,13 @@
 #' @return A data frame or matrix of the same size, with NA values imputed.
 #' @export
 #' @useDynLib mojpakiet, .registration = TRUE
+#' @examples
+#' dirty_data <- data.frame(
+#'   X = c(1.0, 2.0, 1.5, 100.0, 105.0, 102.0),
+#'   Y = c(2.0, 3.0, NA,  200.0, 205.0, NA)
+#' )
+#' clean_data <- impute_knn(dirty_data, k = 2, n_threads = 2)
+#' print(clean_data)
 impute_knn <- function(df, k = 5, n_threads = parallel::detectCores())
   {
   if (!is.data.frame(df) && !is.matrix(df)) {

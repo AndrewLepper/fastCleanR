@@ -12,6 +12,12 @@
 #' @return A numeric vector with LOF scores. Higher scores indicate greater anomaly potential.
 #' @export
 #' @useDynLib mojpakiet, .registration = TRUE
+#' @examples
+#' cluster <- data.frame(X = rnorm(100, 0, 0.5), Y = rnorm(100, 0, 0.5))
+#' anomaly <- data.frame(X = 10, Y = 10)
+#' dataset <- rbind(cluster, anomaly)
+#' lof_scores <- detect_lof(dataset, k = 10, n_threads = 2)
+#' print(lof_scores[101])
 detect_lof <- function(df, k = 20, n_threads = parallel::detectCores()) {
   if (!is.data.frame(df) && !is.matrix(df)) stop("expected data frame or matrix")
   mat <- as.matrix(df)

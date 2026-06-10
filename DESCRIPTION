@@ -7,8 +7,9 @@ Maintainer: Jakub Gronkiewicz <jakub.gronkiewicz2.stud@pw.edu.pl>
 Description: Provides multithreaded C++ implementations of K-Nearest Neighbors imputation and Local Outlier Factor anomaly detection using a custom KD-Tree data structure.
 License: MIT + file LICENSE
 Encoding: UTF-8
-RoxygenNote: 7.2.3
 Imports: 
     Rcpp
 LinkingTo: 
     Rcpp
+Config/roxygen2/version: 8.0.0
+SystemRequirements: Multi-threaded calculations require OpenMP.
