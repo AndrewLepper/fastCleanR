@@ -9,10 +9,10 @@
 struct KDNode 
 {
     std::vector<double> point;  
-    int original_index;
-    KDNode* right;
+    int original_index;     
+    
     KDNode* left;
-
+    KDNode* right;
     KDNode(std::vector<double> pt, int idx) : point(pt), original_index(idx), left(nullptr), right(nullptr) {}
 };
 
