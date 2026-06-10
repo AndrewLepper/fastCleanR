@@ -11,5 +11,10 @@ Imports:
     Rcpp
 LinkingTo: 
     Rcpp
+Suggests:
+    knitr,
+    rmarkdown,
+    tinytest
 Config/roxygen2/version: 8.0.0
 SystemRequirements: Multi-threaded calculations require OpenMP.
+VignetteBuilder: knitr
