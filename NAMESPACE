@@ -2,4 +2,6 @@
 
 export(detect_lof)
 export(impute_knn)
+importFrom(Rcpp,evalCpp)
+importFrom(Rcpp,sourceCpp)
 useDynLib(fastCleanR, .registration = TRUE)

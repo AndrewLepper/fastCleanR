@@ -11,6 +11,7 @@
 #' 
 #' @return A numeric vector with LOF scores. Higher scores indicate greater anomaly potential.
 #' @export
+#' @importFrom Rcpp evalCpp
 #' @useDynLib fastCleanR, .registration = TRUE
 #' @examples
 #' cluster <- data.frame(X = rnorm(100, 0, 0.5), Y = rnorm(100, 0, 0.5))

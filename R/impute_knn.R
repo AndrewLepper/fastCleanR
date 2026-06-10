@@ -11,6 +11,7 @@
 #' @return A data frame or matrix of the same size, with NA values imputed.
 #' @export
 #' @useDynLib fastCleanR, .registration = TRUE
+#' @importFrom Rcpp evalCpp
 #' @examples
 #' dirty_data <- data.frame(
 #'   X = c(1.0, 2.0, 1.5, 100.0, 105.0, 102.0),
