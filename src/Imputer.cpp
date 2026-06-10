@@ -1,5 +1,7 @@
 #include <Rcpp.h>
-#include <omp.h>
+#ifdef _OPENMP
+  #include <omp.h>
+#endif
 #include "KDTree.h"
 using namespace Rcpp;
 
@@ -8,7 +10,9 @@ using namespace Rcpp;
 NumericMatrix cpp_impute_knn_omp(NumericMatrix mat, int k, int n_threads) {
     int nrow = mat.nrow();
     int ncol = mat.ncol();  
-    omp_set_num_threads(n_threads); 
+    #ifdef _OPENMP
+        omp_set_num_threads(n_threads);
+    #endif
     NumericMatrix res = clone(mat);
 
     std::vector<std::vector<double>> points(nrow, std::vector<double>(ncol));
@@ -25,24 +29,24 @@ NumericMatrix cpp_impute_knn_omp(NumericMatrix mat, int k, int n_threads) {
     for (int i = 0; i<nrow; i++)
     {
         
-        bool has_na = false;    
+        bool hasNa = false;    
         for (int j = 0; j<ncol; j++)
         {
             if (NumericVector::is_na(points[i][j]))
             {
-                has_na = true;
+                hasNa = true;
                 break;
             }
         }
 
-        if (has_na) {
+        if (hasNa) {
             std::vector<int> neighbors = tree.findKNearest(points[i], k + 1);
             for (int j = 0; j < ncol; j++) 
             {
                 if (NumericVector::is_na(points[i][j]))
                 {
-                    double sum = 0.0; 
-                    int count = 0; 
+                    double sum=0.0; 
+                    int count=0; 
 
                     for (int n_idx : neighbors)
                     {
@@ -52,7 +56,7 @@ NumericMatrix cpp_impute_knn_omp(NumericMatrix mat, int k, int n_threads) {
                             count++;    
                         }
                     }
-                    if (count > 0)
+                    if (count>0)
                     {    
                         res(i, j) = sum / count;    
                     }
