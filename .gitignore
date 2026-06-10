@@ -1,2 +1,11 @@
-*.o
-*.so
+.Rhistory
+.Rapp.history
+.RData
+.Ruserdata
+.Rproj.user/
+*.Rproj
+src/*.o
+src/*.so
+src/*.dll
+*.tar.gz
+*.Rcheck/

@@ -1,14 +1,14 @@
-Package: mojpakiet
-Version: 0.1
-Date: 2026-04-09
-Title: Moj Pierwszy Pakiet
-Description: Opis.
-Authors@R: c(person("Roman", "Tyk", role = c("aut", "cre"),
-                     email = "Roman.Tyk@pw.edu.pl"))
-Author: Roman Tyk [aut, cre]
-Maintainer: Roman Tyk <Roman.Tyk@pw.edu.pl>
-Depends: stats
-Suggests: tinytest
-License: AGPL (>= 3)
-RoxygenNote: 7.3.3
+Package: fastCleanR
+Type: Package
+Title: High-Performance Data Cleaning and Anomaly Detection
+Version: 0.1.0
+Author: Jakub Gronkiewicz
+Maintainer: Jakub Gronkiewicz <jakub.gronkiewicz2.stud@pw.edu.pl>
+Description: Provides multithreaded C++ implementations of K-Nearest Neighbors imputation and Local Outlier Factor anomaly detection using a custom KD-Tree data structure.
+License: MIT + file LICENSE
 Encoding: UTF-8
+RoxygenNote: 7.2.3
+Imports: 
+    Rcpp
+LinkingTo: 
+    Rcpp
